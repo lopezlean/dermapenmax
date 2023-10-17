@@ -290,7 +290,7 @@ const items: ItemInterface[] = [
     url: "https://amzn.to/3rUCN9w",
     image: "/images/drpen/a10.jpg",
     slug: "/dr-pen/dr-pen-ultima-a10",
-    reviewsUrl: "https://amzn.to/",
+    reviewsUrl: "https://amzn.to/3FktWAZ",
     preTitle:
       '<span class="text-primary dark:text-white">Dr. Pen Ultima A10</span> Calidad/Precio indiscutibles',
     title: "Dr. Pen Ultima A10",
