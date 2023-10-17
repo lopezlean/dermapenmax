@@ -1,4 +1,4 @@
-import { defineConfig } from "astro/config";
+import { defineConfig, squooshImageService } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import preact from "@astrojs/preact";
 import mdx from "@astrojs/mdx";
@@ -15,5 +15,10 @@ export default defineConfig({
   // The folder name Astro uses for static files (`public`) is already reserved
   // for the build output. So in deviation from the defaults we're using a folder
   // called `static` instead.
-  publicDir: "static"
+  publicDir: "static",
+  image: {
+    service: squooshImageService(),
+
+    domains: ["astro.build", "dermapenmax.com", "cdn-icons-png.flaticon.com"],
+  },
 });
