@@ -1,0 +1,34 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import Hero from "~/components/Hero.astro";
+import Features from "~/components/Features.astro";
+
+import items from "~/data/dermapen/bowka/items";
+import BrandDescription from "~/components/BrandDescription.astro";
+import BrandItems from "~/components/BrandItems.astro";
+---
+
+<Layout
+  title="Dermanpen Bowka | Derma Pen Max"
+  description="¿Buscas un Hydrapen al mejor precio? ¿Quieres conocer las características de sus modelos? ¡Solo necesitas hacer clic!"
+>
+  <main>
+    <Hero
+      preTitle={`<span class="text-primary dark:text-white">Bowka</span> buenos dispositivos eléctricos para tratamientos faciales.`}
+      title="Bowka"
+      description="Bowka es una marca de dispositivos eléctricos para tratamientos faciales. Sus productos son de alta calidad y están diseñados para ser fáciles de usar."
+      cta={{
+        target: "_blank",
+        text: `Comprar ${items[0].title}`,
+        url: items[0].url,
+      }}
+    />
+
+    <BrandDescription
+      title="Bowka"
+      description={`<p>BOWKA Derma Pen es un tratamiento comparable a la inyección de ácido hialurónico, el colágeno, las vitaminas y el botulinum, pero con un riesgo menor y puede realizarse cómodamente en casa con una solución simple.</p>`}
+    />
+
+    <BrandItems items={items} />
+  </main>
+</Layout>

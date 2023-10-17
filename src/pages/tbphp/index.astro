@@ -1,0 +1,34 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import Hero from "~/components/Hero.astro";
+import Features from "~/components/Features.astro";
+
+import items from "~/data/dermapen/tbphp/items";
+import BrandDescription from "~/components/BrandDescription.astro";
+import BrandItems from "~/components/BrandItems.astro";
+---
+
+<Layout
+  title="Dermanpen TBPHP | Derma Pen Max"
+  description="¿Buscas un Hydrapen al mejor precio? ¿Quieres conocer las características de sus modelos? ¡Solo necesitas hacer clic!"
+>
+  <main>
+    <Hero
+      preTitle={`<span class="text-primary dark:text-white">TBPHP</span> son los mejores relación calidad / precio.`}
+      title="TBPHP"
+      description="TBPHP ofrece una gran variedad de Derma pens, con diferentes características y precios. ¡Descubre cuál es el mejor para ti!"
+      cta={{
+        target: "_blank",
+        text: `Visitar la tienda oficial de TBPHP`,
+        url: "https://amzn.to/3Fm2gf8",
+      }}
+    />
+
+    <BrandDescription
+      title="Hydrapen"
+      description={`<p>Los Derma Pen TBPHP  Electric son, sin duda, una herramienta poderosa, que superan en eficacia al bolígrafo de microagujas promedio.</p>`}
+    />
+
+    <BrandItems items={items} />
+  </main>
+</Layout>

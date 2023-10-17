@@ -1,0 +1,41 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import Hero from "~/components/Hero.astro";
+import Features from "~/components/Features.astro";
+
+import items from "~/data/dermapen/drpen/items";
+import BrandDescription from "~/components/BrandDescription.astro";
+import BrandItems from "~/components/BrandItems.astro";
+---
+
+<Layout
+  title="Dermanpen Dr. Pen | Derma Pen Max"
+  description="¿Buscas un Dr. Pen al mejor precio? ¿Quieres conocer las características de sus modelos? ¡Solo necesitas hacer clic!"
+>
+  <main>
+    <Hero
+      preTitle={`<span class="text-primary dark:text-white">Dr. Pen</span> es el Derma Pen 
+       más avanzado y elegido del mercado.`}
+      title="Dr. Pen"
+      description="Dr. pen® es la marca más recomendada por esteticistas de todo el mundo"
+      cta={{
+        target: "_blank",
+        text: `Comprar ${items[0].title}`,
+        url: items[0].url,
+      }}
+    />
+
+    <BrandDescription
+      title="Dr. Pen"
+      description={`<p>Dr. Pen es un revolucionario dispositivo de cuidado de la piel con microagujas que tiene como objetivo tensar, elevar y rejuvenecer tu piel.</p>
+
+      <p>Apunta a áreas problemáticas como las líneas finas alrededor de los labios, los ojos y las líneas de expresión.</p>
+
+        <p>Reduce la apariencia de cicatrices o daños en la piel, como cicatrices de acné y estrías en el rostro o el cuerpo.</p>
+
+          <p>Tratamiento antienvejecimiento, antiarrugas, tratamiento contra la caída del cabello, hiperpigmentación y mucho más.</p>`}
+    />
+
+    <BrandItems items={items} />
+  </main>
+</Layout>

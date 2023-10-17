@@ -1,0 +1,61 @@
+---
+import ItemInterface from "~/interfaces/item.interface";
+import Container from "./Container.astro";
+import Stars from "./Stars.astro";
+
+interface Props {
+  item: ItemInterface;
+}
+
+const { reviewItems, reviewsUrl, title, stars } = Astro.props.item;
+---
+
+<div class="text-center">
+  <Container>
+    <h3
+      class="my-8 text-xl font-bold text-gray-700 dark:text-white md:text-3xl"
+    >
+      ¿Cuál es la opinión de los usuarios sobre {title}?
+    </h3>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+      {
+        Array.isArray(reviewItems) &&
+          reviewItems.map((review) => (
+            <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-900 dark:border-gray-800 dark:hover:bg-gray-800">
+              <article>
+                <div class="flex items-center mb-4 space-x-4">
+                  <div class="space-y-1 text-sm dark:text-white">
+                    <p>{review.name}</p>
+                  </div>
+                </div>
+                <div class="flex items-center mb-1 flex-col">
+                  <Stars stars={review.stars} />
+                  <h4 class="ml-2 text-xl font-semibold text-gray-900 dark:text-white mt-3">
+                    {review.title}
+                  </h4>
+                </div>
+
+                <p class="mb-2 text-gray-500 dark:text-gray-400">
+                  {review.body}
+                </p>
+
+                <a
+                  href={reviewsUrl}
+                  class="block mb-5 text-sm font-medium text-primary hover:underline dark:text-blue-500"
+                >
+                  Leer más
+                </a>
+              </article>
+            </div>
+          ))
+      }
+    </div>
+    <a
+      href={reviewsUrl}
+      class="inline-block mt-5 text-lg font-medium text-primary hover:underline dark:text-blue-500"
+      target="_blank"
+    >
+      Ver más opiniones
+    </a>
+  </Container>
+</div>

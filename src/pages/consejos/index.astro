@@ -1,0 +1,26 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import Hero from "~/components/Hero.astro";
+import TipItem from "~/components/TipItem.astro";
+
+import items from "~/data/tips/data";
+import Container from "~/components/Container.astro";
+---
+
+<Layout
+  title="Consejos | Derma Pen Max"
+  description="Archivo de consejos para el cuidado de la piel con dermapen."
+>
+  <main>
+    <Hero
+      preTitle={`Los mejores <span class="text-primary dark:text-white">consejos</span> para el uso de dermapen.`}
+      title="Consejos"
+      description="A continuación te mostramos una serie de consejos para el uso de dermapen."
+    />
+    <Container>
+      <div class="grid grid-cols-2 gap-4">
+        {items.map((item) => <TipItem item={item} />)}
+      </div>
+    </Container>
+  </main>
+</Layout>

@@ -1,0 +1,36 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import Hero from "~/components/Hero.astro";
+import Features from "~/components/Features.astro";
+
+import items from "~/data/dermapen/mrpin/items";
+import BrandDescription from "~/components/BrandDescription.astro";
+import BrandItems from "~/components/BrandItems.astro";
+---
+
+<Layout
+  title="Dermanpen Mr. Pin | Derma Pen Max"
+  description="¿Buscas un Mr. Pin  al mejor precio? ¿Quieres conocer las características de sus modelos? ¡Solo necesitas hacer clic!"
+>
+  <main>
+    <Hero
+      preTitle={`<span class="text-primary dark:text-white">Mr. Pin</span>, la alternativa a Dr. pin.`}
+      title="Mr. Pin"
+      description="Mr. Pin® es usado ya sea en casa como en clínicas y centros de bellaza proporciona altos niveles de comodidad y seguridad en un marco muy profesional con gran facilidad de uso"
+      cta={{
+        target: "_blank",
+        text: `Comprar ${items[0].title}`,
+        url: items[0].url,
+      }}
+    />
+
+    <BrandDescription
+      title="Mr. Pin"
+      description={`<p>Mr.Pin es la mejor opción en el mundo de la tecnología de microagujas, donde puedes confiar en ella, ya sea en casa o en clínicas y centros de belleza, porque proporciona altos niveles de comodidad y seguridad en un marco muy profesional con gran facilidad de uso.</p>
+      <p>Los productos Mr. Pin son fabricados con los más altos estándares de calidad internacionales, y para combatir la falsificación de productos, la empresa ha colocado un código QR en cada uno de sus productos para que el cliente pueda confirmar que el producto es original escaneando el código QR con el cámara del teléfono y acceder automáticamente al sitio web de la empresa para verificar la autenticidad del producto</p>
+      `}
+    />
+
+    <BrandItems items={items} />
+  </main>
+</Layout>

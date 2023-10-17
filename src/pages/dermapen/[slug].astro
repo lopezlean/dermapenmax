@@ -1,0 +1,48 @@
+---
+import BrandDescription from "~/components/BrandDescription.astro";
+import BrandItems from "~/components/BrandItems.astro";
+import Hero from "~/components/Hero.astro";
+import ProductDescription from "~/components/ProductDescription.astro";
+import ProductFeatures from "~/components/ProductFeatures.astro";
+import ProductReviews from "~/components/ProductReviews.astro";
+import items from "~/data/dermapen/drpen/items";
+import Layout from "~/layouts/Layout.astro";
+
+export function getStaticPaths() {
+  return items.map((item) => ({
+    params: { slug: item.slug.split("/").filter(Boolean).pop() },
+  }));
+}
+
+const { slug, index } = Astro.params;
+
+// get item by slug
+const item =
+  items.find((item) => item.slug.split("/").filter(Boolean).pop() === slug) ||
+  items[0];
+---
+
+<Layout
+  title={`${item?.title} | Derma Pen Max`}
+  description={`Descubre todas las características y ventajas de utilizar el ${item?.title} en tu tratamiento cosmético.`}
+  floatingButton={{
+    text: "Comprar",
+    url: item.url,
+  }}
+>
+  <main>
+    <Hero
+      preTitle={item.preTitle}
+      title={item.title}
+      description={item.excerpt}
+      cta={{
+        target: "_blank",
+        text: `Comprar ${item.title}`,
+        url: item.url,
+      }}
+    />
+
+    <ProductFeatures item={item} />
+    <ProductReviews item={item} />
+  </main>
+</Layout>

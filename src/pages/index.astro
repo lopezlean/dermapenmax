@@ -1,0 +1,36 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import Hero from "../components/Hero.astro";
+import Brands from "~/components/Brands.astro";
+import Features from "../components/Features.astro";
+import Faqs from "~/components/Faqs.astro";
+---
+
+<Layout
+  title="Derma Pen Max: Consigue una cosmética de calidad al mejor precio"
+  description="Te ayudamos a elegir el mejor dermapen para el cuidado de tu piel. : ✓ Tipos ✓ Precios ✓ Opiniones ✓ Ventajas ✓ Riesgos"
+>
+  <main>
+    <Hero
+      preTitle={`Comparativa de los 10 mejores <span class="text-primary dark:text-white">
+            DermaPen
+          </span>
+           del mercado.`}
+      title="DermaPen"
+      description="Analizamos reseñas, comentarios de usuarios, debates en foros, sentimientos sobre la reputación de las marcas, y otros datos relevantes para que puedas hacer la mejor compra de tu Derma Pen."
+      *description={`Según nuestra opinión, el mejor dermapen es el dr.pen Ultima A6. Es un
+		   dermapen de calidad profesional, con un motor potente y una velocidad
+		   de hasta 10000 rpm. Además, incluye 10 agujas de diferentes tamaños y
+	 	   un estuche de transporte.`}
+      *
+      cta={{
+        text: "Comparativa de los mejores Derma Pen",
+        url: "#",
+      }}
+    />
+    <Brands />
+    <Features />
+    <Faqs />
+  </main>
+</Layout>

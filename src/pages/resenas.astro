@@ -1,0 +1,32 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import Hero from "~/components/Hero.astro";
+import Features from "~/components/Features.astro";
+
+import BrandDescription from "~/components/BrandDescription.astro";
+import BrandItems from "~/components/BrandItems.astro";
+
+import items from "~/data/dermapen/items";
+---
+
+<Layout title="Resenas | Derma Pen Max" description="Reseñas de Derma Pen">
+  <main>
+    <Hero
+      preTitle={`<span class="text-primary dark:text-white">Reseñas</span> de los mejores derma pen.`}
+      title="Reseñas"
+      description="Reseñas de los mejores derma pen del mercado"
+      cta={{
+        target: "_blank",
+        text: `Comprar ${items[0].title}`,
+        url: items[0].url,
+      }}
+    />
+
+    <BrandDescription
+      title="Hydrapen"
+      description={`<p>Los Derma Pen TBPHP  Electric son, sin duda, una herramienta poderosa, que superan en eficacia al bolígrafo de microagujas promedio.</p>`}
+    />
+
+    <BrandItems items={items} />
+  </main>
+</Layout>

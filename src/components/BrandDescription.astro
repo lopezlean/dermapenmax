@@ -1,0 +1,29 @@
+---
+import Container from "./Container.astro";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<style is:global>
+  .brand-container .description p {
+    margin-bottom: 1rem;
+  }
+</style>
+
+<div class="mt-10 text-center brand-container">
+  <Container>
+    <h2 class="text-3xl mt-3 text-gray-900 dark:text-white">
+      Los mejores dermapen {title}
+    </h2>
+
+    <div
+      class="mt-8 text-gray-700 dark:text-gray-300 description"
+      set:html={description}
+    />
+  </Container>
+</div>

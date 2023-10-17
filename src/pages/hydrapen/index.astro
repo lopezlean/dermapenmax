@@ -1,0 +1,38 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import Hero from "~/components/Hero.astro";
+import Features from "~/components/Features.astro";
+
+import items from "~/data/dermapen/hydrapen/items";
+import BrandDescription from "~/components/BrandDescription.astro";
+import BrandItems from "~/components/BrandItems.astro";
+---
+
+<Layout
+  title="Dermanpen Hydrapen | Derma Pen Max"
+  description="¿Buscas un Hydrapen al mejor precio? ¿Quieres conocer las características de sus modelos? ¡Solo necesitas hacer clic!"
+>
+  <main>
+    <Hero
+      preTitle={`<span class="text-primary dark:text-white">Hydrapen</span> es el más novedoso.`}
+      title="Hydrapen"
+      description="Hydrapen® es la primer marca que hidrata y nutre la piel mientras la rejuvenece. Desbloquee su belleza y mejora la condición de la piel la pluma de microneedling profesional con calificación superior"
+      cta={{
+        target: "_blank",
+        text: `Comprar ${items[0].title}`,
+        url: items[0].url,
+      }}
+    />
+
+    <BrandDescription
+      title="Hydrapen"
+      description={`<p>Basado en microperforaciones de la piel, perfora hasta 0,3 ml y estimula naturalmente el colágeno y la elastina.      </p>
+
+      <p>Es una tecnología innovadora en el campo de la estética con la que se obtienen grandes resultados.</p>
+
+        <p>Sus prestaciones, su durabilidad, su tamaño y su inmejorable relación calidad-precio le convierten en el mejor aplicador y más seguro para profesionales del mercado.</p>`}
+    />
+
+    <BrandItems items={items} />
+  </main>
+</Layout>

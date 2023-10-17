@@ -1,0 +1,41 @@
+---
+import items from "~/data/dermapen/items";
+import type TipInterface from "~/interfaces/tip.interface";
+interface Props {
+  item: TipInterface;
+}
+
+const { item } = Astro.props;
+---
+
+<article class="flex flex-col shadow my-4">
+  <!-- Article Image -->
+  <a href={item.slug} class="hover:opacity-75">
+    <img src={item.image} />
+  </a>
+  <div class="bg-white flex flex-col justify-start p-6">
+    <span class="text-blue-700 text-sm font-bold uppercase pb-4">
+      {
+        Array.isArray(item.tags) &&
+          item.tags.map((tag) => <span class="mr-2">{tag}</span>)
+      }
+    </span>
+
+    <a href={item.slug} class="text-3xl font-bold hover:text-gray-700 pb-4"
+      >{item.title}
+    </a>
+
+    <a href="#" class="pb-6"
+      >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis
+      porta dui. Ut eu iaculis massa. Sed ornare ligula lacus, quis iaculis dui
+      porta volutpat. In sit amet posuere magna..</a
+    >
+    <div class="text-right">
+      <a
+        href={item.slug}
+        class="uppercase hover:text-gray-100 bg-orange-600 text-white font-bold py-2 px-4"
+        >Leer más</a
+      >
+    </div>
+  </div>
+</article>

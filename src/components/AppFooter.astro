@@ -1,0 +1,47 @@
+---
+import Container from "./Container.astro";
+import Logo from "./Logo.astro";
+---
+
+<footer class="bg-gray-900 mt-12 pt-12 pb-8">
+  <hr class="my-6 sm:mx-auto border-gray-700 lg:my-8" />
+  <Container>
+    <div class="md:flex md:justify-between">
+      <div class="mb-6 md:mb-0">
+        <a href="/" class="flex items-center">
+          <span
+            class="self-center text-2xl font-semibold whitespace-nowrap text-white"
+            >Derma Pen Max</span
+          >
+          <Logo />
+        </a>
+      </div>
+      <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+        <div>
+          <h2
+            class="mb-6 text-sm font-semibold text-gray-900 uppercase text-white"
+          >
+            Legal
+          </h2>
+          <ul class="text-gray-500 text-gray-400 font-medium">
+            <li class="mb-4">
+              <a
+                href="/politica-de-privacidad"
+                class="hover:underline text-gray-500 text-gray-400"
+                >Política de privacidad</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <hr class="my-6 sm:mx-auto border-gray-700 lg:my-8" />
+    <div class="sm:flex sm:items-center sm:justify-between">
+      <span class="text-sm text-gray-500 sm:text-center text-gray-400"
+        >© 2023 <a href="https://flowbite.com/" class="hover:underline"
+          >Derma Pen Max™</a
+        >. Todos los derechos reservados
+      </span>
+    </div>
+  </Container>
+</footer>
