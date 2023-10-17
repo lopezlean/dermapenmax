@@ -8,7 +8,8 @@ const items: ItemInterface[] = [
     reviewsUrl: "https://amzn.to/45tNmOF",
     image: e30,
     slug: "/mrpin/mrpin-e30",
-    preTitle: "M",
+    preTitle:
+      "Inalámbrico con 20  cartuchos de repuesto diferentes tamaños",
     title: "Mr. Pin E30 Plus",
     excerpt:
       "Mr.Pin E30 plus es un dermapen inalámbrico con 20 piezas de cartuchos de repuesto diferentes tamaños – para el cuidado de la piel y el cabello",
