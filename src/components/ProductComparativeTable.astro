@@ -1,0 +1,95 @@
+---
+import type { ItemFeatureInterface } from "~/interfaces/item.interface";
+import Container from "./Container.astro";
+
+import items from "~/data/dermapen/items";
+import ProductComparativeTableRow from "./ProductComparativeTableRow.astro";
+import Stars from "./Stars.astro";
+import type ItemInterface from "~/interfaces/item.interface";
+
+const keysTranslations: Partial<ItemFeatureInterface> = {
+  brand: "Marca",
+  model: "Modelo",
+  battery: "Incluye baterias",
+  wireless: "Inalambrico",
+  rpm: "RPM",
+  speed: "Velocidad",
+  ledDisplay: "Tiene display",
+  //reviews: "Valoraciones",
+};
+
+// max 4
+const itemsToCompare = items.slice(0, 4);
+---
+
+<Container>
+  <div
+    class="relative overflow-x-auto shadow-xl rounded mt-8 border border-gray-100"
+  >
+    <table class="w-full text-sm text-left text-gray-800 dark:text-gray-100">
+      <tbody>
+        <ProductComparativeTableRow
+          client:load
+          feature={"other"}
+          items={itemsToCompare}
+          getItemFeatureName={() => ""}
+        >
+          {
+            (item: ItemInterface) => (
+              <a href={item.slug}>
+                <img
+                  src={item.image}
+                  alt={item.excerpt}
+                  class=" w-36 object-cover object-center "
+                />
+              </a>
+            )
+          }
+        </ProductComparativeTableRow>
+        {
+          Object.keys(keysTranslations).map((key) => (
+            <ProductComparativeTableRow
+              feature={key as keyof ItemFeatureInterface}
+              items={itemsToCompare}
+            />
+          ))
+        }
+
+        <ProductComparativeTableRow
+          client:load
+          feature={"other"}
+          items={itemsToCompare}
+          getItemFeatureName={() => "Revisiones"}
+        >
+          {
+            (item: ItemInterface) => (
+              <p>
+                <Stars stars={item.stars} /> {item.reviews} revisiones{" "}
+              </p>
+            )
+          }
+        </ProductComparativeTableRow>
+
+        <ProductComparativeTableRow
+          client:load
+          feature={"other"}
+          items={itemsToCompare}
+          getItemFeatureName={() => "Comprar"}
+        >
+          {
+            (item: ItemInterface) => (
+              <a
+                href={item.url}
+                target="_blank"
+                type="button"
+                class="bg-orange-300 text-gray-900 font-bold py-2 px-3 rounded text-xl"
+              >
+                Comprar
+              </a>
+            )
+          }
+        </ProductComparativeTableRow>
+      </tbody>
+    </table>
+  </div>
+</Container>

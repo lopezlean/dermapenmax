@@ -5,6 +5,8 @@ import Hero from "../components/Hero.astro";
 import Brands from "~/components/Brands.astro";
 import Features from "../components/Features.astro";
 import Faqs from "~/components/Faqs.astro";
+import ProductComparativeTable from "~/components/ProductComparativeTable.astro";
+import Container from "~/components/Container.astro";
 ---
 
 <Layout
@@ -32,6 +34,14 @@ import Faqs from "~/components/Faqs.astro";
     />
     <Brands />
     <Features />
+    <Container>
+      <h2
+        class="my-8 text-2xl font-bold text-gray-700 dark:text-white md:text-4xl"
+      >
+        Los mejores <span class="text-primary dark:text-white">Derma Pen</span>
+      </h2>
+    </Container>
+    <ProductComparativeTable />
     <Faqs />
   </main>
 </Layout>

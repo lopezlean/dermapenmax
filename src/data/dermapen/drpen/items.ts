@@ -242,7 +242,7 @@ const items: ItemInterface[] = [
     ],
 
     features: {
-      brand: "Derma Pen",
+      brand: "Dr. Pen",
       model: "Ultima A8S",
       battery: "Batería de iones de litio incorporada de 600mAh",
       wireless: "Sí",

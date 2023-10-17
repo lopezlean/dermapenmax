@@ -1,0 +1,57 @@
+---
+import type { JSX } from "preact";
+import type { ItemFeatureInterface } from "~/interfaces/item.interface";
+import type ItemInterface from "~/interfaces/item.interface";
+interface Props {
+  feature: keyof ItemFeatureInterface;
+  items: ItemInterface[];
+  getItemFeatureName?: (feature: keyof ItemFeatureInterface) => string;
+  getItemProp?: (
+    item: ItemInterface,
+    feature: keyof ItemFeatureInterface
+  ) => string | JSX.Element;
+}
+
+const keysTranslations: Partial<ItemFeatureInterface> = {
+  brand: "Marca",
+  model: "Modelo",
+  battery: "Bateria",
+  wireless: "Inalambrico",
+  rpm: "RPM",
+  speed: "Velocidad",
+  ledDisplay: "Tiene display",
+
+  //reviews: "Valoraciones",
+};
+
+const responsiveRowClasses =
+  "flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0";
+
+const { items, feature, getItemProp, getItemFeatureName } = Astro.props;
+---
+
+<tr class=" border-b border-gray-100 even:bg-gray-100 odd:bg-white">
+  <th
+    scope="row"
+    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+  >
+    {
+      getItemFeatureName
+        ? getItemFeatureName(feature)
+        : keysTranslations[feature]
+    }
+  </th>
+  {
+    items.map((item) => (
+      <td class="px-6 py-4 break-all	 dark:text-white">
+        {Astro.slots.has("default") ? (
+          <Fragment set:html={Astro.slots.render("default", [item])} />
+        ) : getItemProp ? (
+          getItemProp(item, feature)
+        ) : (
+          item.features[feature]
+        )}
+      </td>
+    ))
+  }
+</tr>

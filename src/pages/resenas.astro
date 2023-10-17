@@ -7,6 +7,8 @@ import BrandDescription from "~/components/BrandDescription.astro";
 import BrandItems from "~/components/BrandItems.astro";
 
 import items from "~/data/dermapen/items";
+import Container from "~/components/Container.astro";
+import ProductComparativeTable from "~/components/ProductComparativeTable.astro";
 ---
 
 <Layout title="Resenas" description="Reseñas de Derma Pen">
@@ -28,5 +30,16 @@ import items from "~/data/dermapen/items";
     />
 
     <BrandItems items={items} />
+
+    <Container>
+      <h2
+        class="my-8 text-2xl font-bold text-gray-700 dark:text-white md:text-4xl"
+      >
+        Comparativa de los mejores <span class="text-primary dark:text-white"
+          >Derma Pen</span
+        >
+      </h2>
+    </Container>
+    <ProductComparativeTable />
   </main>
 </Layout>
