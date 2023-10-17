@@ -21,11 +21,15 @@ const { item } = Astro.props;
       }
     </span>
 
-    <a href={item.slug} class="text-3xl font-bold hover:text-gray-700 pb-4"
+    <a
+      href={item.slug}
+      class="text-3xl font-bold hover:text-gray-700 pb-4 text-gray-900 dark:text-gray-100 dark:hover:text-white"
       >{item.title}
     </a>
 
-    <a href="#" class="pb-6"
+    <a
+      href="#"
+      class="pb-6 text-gray-900 dark:text-gray-100 dark:hover:text-white"
       >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis
       porta dui. Ut eu iaculis massa. Sed ornare ligula lacus, quis iaculis dui
       porta volutpat. In sit amet posuere magna..</a
