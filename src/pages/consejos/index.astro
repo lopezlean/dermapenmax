@@ -18,7 +18,7 @@ import Container from "~/components/Container.astro";
       description="A continuación te mostramos una serie de consejos para el uso de dermapen."
     />
     <Container>
-      <div class="grid grid-cols-2 gap-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         {items.map((item) => <TipItem item={item} />)}
       </div>
     </Container>

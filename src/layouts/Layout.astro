@@ -7,13 +7,19 @@ import AppHeader from "../components/AppHeader.astro";
 interface Props {
   title: string;
   description: string;
+  image?: string;
   floatingButton?: {
     text: string;
     url: string;
   };
 }
 
-const { title, description, floatingButton } = Astro.props;
+const {
+  title,
+  description,
+  floatingButton,
+  image = "/images/derma-pen-max-mejor-tienda-dermapen.jpeg",
+} = Astro.props;
 
 const floatingButtonInstance = floatingButton || {
   text: "Comparativas",
@@ -37,7 +43,7 @@ const floatingButtonInstance = floatingButton || {
         basic: {
           title: title,
           type: "website",
-          image: "/images/derma-pen-max-mejor-tienda-dermapen.jpeg",
+          image: image,
         },
       }}
       twitter={{
@@ -50,7 +56,7 @@ const floatingButtonInstance = floatingButton || {
         meta: [
           {
             name: "twitter:image",
-            content: "/images/derma-pen-max-mejor-tienda-dermapen.jpeg",
+            content: image,
           },
           { name: "twitter:title", content: title },
           { name: "twitter:description", content: description },

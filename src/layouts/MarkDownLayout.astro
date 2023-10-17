@@ -3,15 +3,25 @@ import Container from "~/components/Container.astro";
 import Layout from "./Layout.astro";
 import Hero from "~/components/Hero.astro";
 
-const { title, description, floatingButton, preTitle } =
+const { title, description, floatingButton, preTitle, image } =
   Astro.props.frontmatter;
 ---
 
 <style is:global></style>
 
-<Layout title={title} description={description} floatingButton={floatingButton}>
+<Layout
+  title={title}
+  description={description}
+  floatingButton={floatingButton}
+  image={image}
+>
   <div class="mt-12 pt-12">
-    <Hero title={title} description={description} preTitle={preTitle} />
+    <Hero
+      title={title}
+      description={description}
+      preTitle={preTitle}
+      image={image}
+    />
     <Container>
       <article
         class="prose max-w-none lg:prose-xl dark:text-gray-100 text-gray-900"

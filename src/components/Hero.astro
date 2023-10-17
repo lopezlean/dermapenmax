@@ -5,6 +5,7 @@ interface Props {
   preTitle: string;
   title: string;
   description: string;
+  image?: string;
   cta?: {
     target?: string;
     text: string;
@@ -12,7 +13,7 @@ interface Props {
   };
 }
 
-const { preTitle, title, description, cta } = Astro.props;
+const { preTitle, title, description, cta, image } = Astro.props;
 ---
 
 <div class="relative" id="home">
@@ -36,6 +37,13 @@ const { preTitle, title, description, cta } = Astro.props;
           class="text-gray-900 dark:text-white font-bold text-5xl md:text-6xl xl:text-7xl"
           set:html={preTitle}
         />
+        {
+          image && (
+            <div class="mt-8">
+              <img src={image} alt={title} class="mx-auto w-10/12" />
+            </div>
+          )
+        }
         <h1 class="text-3xl mt-3 text-gray-900 dark:text-white">{title}</h1>
         <p class="mt-8 text-gray-700 dark:text-gray-300">
           {description}
