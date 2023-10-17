@@ -28,12 +28,7 @@ const itemsToCompare = items.slice(0, 4);
   >
     <table class="w-full text-sm text-left text-gray-800 dark:text-gray-100">
       <tbody>
-        <ProductComparativeTableRow
-          client:load
-          feature={"other"}
-          items={itemsToCompare}
-          getItemFeatureName={() => ""}
-        >
+        <ProductComparativeTableRow feature={"other"} items={itemsToCompare}>
           {
             (item: ItemInterface) => (
               <a href={item.slug}>
@@ -82,7 +77,7 @@ const itemsToCompare = items.slice(0, 4);
                 href={item.url}
                 target="_blank"
                 type="button"
-                class="bg-orange-300 text-gray-900 font-bold py-2 px-3 rounded text-xl"
+                class="bg-orange-300 text-gray-900 font-bold py-2 px-3 rounded md:text-xl text-sm"
               >
                 Comprar
               </a>
