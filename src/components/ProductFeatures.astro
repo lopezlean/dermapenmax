@@ -1,6 +1,7 @@
 ---
 import type ItemInterface from "~/interfaces/item.interface";
 import Container from "./Container.astro";
+import { Image } from "astro:assets";
 
 interface Props {
   item: ItemInterface;
@@ -13,7 +14,7 @@ const { descriptionWithFeatures, description, url, title, image, excerpt } =
 <div class="mt-5 text-center">
   <Container>
     <figure class="max-w-lg mx-auto">
-      <img src={image} alt={excerpt} class="h-auto max-w-full d" />
+      <Image src={image} alt={excerpt} class="h-auto max-w-full d" />
       <figcaption
         class="mt-2 text-sm text-center text-gray-500 dark:text-gray-400 mb-7"
       >

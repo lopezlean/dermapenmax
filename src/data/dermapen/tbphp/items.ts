@@ -1,8 +1,11 @@
 import type ItemInterface from "~/interfaces/item.interface";
 
+import m1 from "~/images/tbphp/m1.jpg";
+import p20rl from "~/images/tbphp/p20rl.jpg";
+
 const items: ItemInterface[] = [
   {
-    image: "/images/tbphp/m1.jpg",
+    image: m1,
     url: "https://amzn.to/46wtjjE",
     reviewsUrl: "https://amzn.to/3ZZxjqx",
     preTitle: "El mejor calidad precio",
@@ -33,7 +36,7 @@ const items: ItemInterface[] = [
     disadvantages: ["Cartuchos no compatibles con otras marcas"],
   },
   {
-    image: "/images/tbphp/p20rl.jpg",
+    image: p20rl,
     reviewsUrl: "https://amzn.to/3Fjbp89",
     reviewItems: [],
     preTitle: "Incluye 3 pilas recargables",

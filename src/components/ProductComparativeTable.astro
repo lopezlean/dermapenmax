@@ -6,6 +6,7 @@ import items from "~/data/dermapen/items";
 import ProductComparativeTableRow from "./ProductComparativeTableRow.astro";
 import Stars from "./Stars.astro";
 import type ItemInterface from "~/interfaces/item.interface";
+import { Image } from "astro:assets";
 
 const keysTranslations: Partial<ItemFeatureInterface> = {
   brand: "Marca",
@@ -32,10 +33,12 @@ const itemsToCompare = items.slice(0, 4);
           {
             (item: ItemInterface) => (
               <a href={item.slug}>
-                <img
+                <Image
                   src={item.image}
                   alt={item.excerpt}
                   class=" w-36 object-cover object-center "
+                  width={144}
+                  height={144}
                 />
               </a>
             )

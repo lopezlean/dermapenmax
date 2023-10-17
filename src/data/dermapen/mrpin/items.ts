@@ -1,10 +1,12 @@
 import type ItemInterface from "~/interfaces/item.interface";
 
+import e30 from "~/images/mrpin/e30.jpg";
+
 const items: ItemInterface[] = [
   {
     url: "https://amzn.to/45tNmOF",
     reviewsUrl: "https://amzn.to/45tNmOF",
-    image: "/images/mrpin/e30.jpg",
+    image: e30,
     slug: "/mrpin/mrpin-e30",
     preTitle: "M",
     title: "Mr. Pin E30 Plus",

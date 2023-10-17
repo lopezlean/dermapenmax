@@ -23,7 +23,7 @@ export interface ReviewItemInterface {
 }
 
 export default interface ItemInterface {
-  image: string;
+  image: ImageMetadata;
   title: string;
   slug: string;
   preTitle: string;

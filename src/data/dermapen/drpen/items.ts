@@ -1,11 +1,16 @@
 import type ItemInterface from "~/interfaces/item.interface";
 
+import a6 from "~/images/drpen/a6.jpg";
+import m8 from "~/images/drpen/m8.jpg";
+import a8s from "~/images/drpen/a8s.jpg";
+import a10 from "~/images/drpen/a10.jpg";
+
 const items: ItemInterface[] = [
   {
     slug: "/dr-pen/drpen-a6",
     reviewsUrl:
       "https://www.amazon.es/Microneedle-el%C3%A9ctrico-Cartuchos-Recargable-0-25-2-5mm/product-reviews/B07KXMYLMG/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews",
-    image: "/images/drpen/a6.jpg",
+    image: a6,
     url: "https://amzn.to/3rXGfjy",
     preTitle:
       '<span class="text-primary dark:text-white">Dr. Pen A6</span> es el Derma Pen más avanzado y elegido del mercado.',
@@ -101,7 +106,7 @@ const items: ItemInterface[] = [
   {
     slug: "/dr-pen/drpen-m8",
     reviewsUrl: "https://amzn.to/3Q0OVxC",
-    image: "/images/drpen/m8.jpg",
+    image: m8,
     url: "https://amzn.to/3QgIyaY",
     preTitle:
       '<span class="text-primary dark:text-white">Dr. Pen Ultima M8</span> es el Derma Pen más reciente de Dr. Pen.',
@@ -209,7 +214,7 @@ const items: ItemInterface[] = [
 
   {
     reviewsUrl: "https://amzn.to/45ArdhF",
-    image: "/images/drpen/a8s.jpg",
+    image: a8s,
     preTitle:
       '<span class="text-primary dark:text-white">Dr. Pen A8S</span> con 2 Baterias.',
     url: "https://amzn.to/3QhL14N",
@@ -288,7 +293,7 @@ const items: ItemInterface[] = [
 
   {
     url: "https://amzn.to/3rUCN9w",
-    image: "/images/drpen/a10.jpg",
+    image: a10,
     slug: "/dr-pen/dr-pen-ultima-a10",
     reviewsUrl: "https://amzn.to/3FktWAZ",
     preTitle:

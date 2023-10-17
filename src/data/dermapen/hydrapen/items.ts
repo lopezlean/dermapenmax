@@ -1,11 +1,14 @@
 import type ItemInterface from "~/interfaces/item.interface";
 
+import h2 from "~/images/hydrapen/h2.jpg";
+import h3 from "~/images/hydrapen/h3.jpg";
+
 const items: ItemInterface[] = [
   {
     url: "https://amzn.to/3tGG4cT",
     reviewsUrl: "https://amzn.to/46VP6RX",
     slug: "/hydrapen/hydrapen-h2",
-    image: "/images/hydrapen/h2.jpg",
+    image: h2,
     preTitle: "Hidrata y rejuvenece tu piel",
     title: "NHM Hydra Pen H2",
     excerpt:
@@ -33,7 +36,7 @@ const items: ItemInterface[] = [
 
     reviewsUrl: "https://amzn.to/3FitJhF",
     slug: "/hydrapen/hydrapen-h3",
-    image: "/images/hydrapen/h3.jpg",
+    image: h3,
     preTitle: "Hidrata y rejuvenece tu piel",
     title: "Hydra Pen H3",
     excerpt:

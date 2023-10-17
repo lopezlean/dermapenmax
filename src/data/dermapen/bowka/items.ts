@@ -1,10 +1,11 @@
 import type ItemInterface from "~/interfaces/item.interface";
 
+import m1 from "~/images/bowka/m1.jpg";
 const items: ItemInterface[] = [
   {
     url: "https://amzn.to/3Q0VKze",
     slug: "/bowka/bowka-m1",
-    image: "/images/bowka/m1.jpg",
+    image: m1,
     reviewsUrl: "https://amzn.to/3PVaShH",
     preTitle: "El mejor precio",
     title: "Dermapen BOWKA Profesional Electrico",
