@@ -5,8 +5,10 @@ import Hero from "../components/Hero.astro";
 import Brands from "~/components/Brands.astro";
 import Features from "../components/Features.astro";
 import Faqs from "~/components/Faqs.astro";
-import ProductComparativeTable from "~/components/ProductComparativeTable.astro";
+
 import Container from "~/components/Container.astro";
+import items from "~/data/dermapen/items";
+import ResponsiveProductComparativeTable from "~/components/ResponsiveProductComparativeTable.astro";
 ---
 
 <Layout
@@ -41,7 +43,7 @@ import Container from "~/components/Container.astro";
         Los mejores <span class="text-primary dark:text-white">Derma Pen</span>
       </h2>
     </Container>
-    <ProductComparativeTable />
+    <ResponsiveProductComparativeTable items={items} />
     <Faqs />
   </main>
 </Layout>

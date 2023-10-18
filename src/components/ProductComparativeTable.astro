@@ -2,11 +2,15 @@
 import type { ItemFeatureInterface } from "~/interfaces/item.interface";
 import Container from "./Container.astro";
 
-import items from "~/data/dermapen/items";
 import ProductComparativeTableRow from "./ProductComparativeTableRow.astro";
 import Stars from "./Stars.astro";
 import type ItemInterface from "~/interfaces/item.interface";
 import { Image } from "astro:assets";
+
+interface Props {
+  items: ItemInterface[];
+  maxItems?: number;
+}
 
 const keysTranslations: Partial<ItemFeatureInterface> = {
   brand: "Marca",
@@ -19,13 +23,15 @@ const keysTranslations: Partial<ItemFeatureInterface> = {
   //reviews: "Valoraciones",
 };
 
+const items = Astro.props.items;
+const maxItems = Astro.props.maxItems || 4;
 // max 4
-const itemsToCompare = items.slice(0, 4);
+const itemsToCompare = items.slice(0, maxItems);
 ---
 
 <Container>
   <div
-    class="relative overflow-x-auto shadow-xl rounded mt-8 border border-gray-100"
+    class="relative overflow-x-auto shadow-xl rounded mt-8 border border-gray-100 dark:border-gray-600"
   >
     <table class="w-full text-sm text-left text-gray-800 dark:text-gray-100">
       <tbody>
@@ -62,7 +68,7 @@ const itemsToCompare = items.slice(0, 4);
           {
             (item: ItemInterface) => (
               <p>
-                <Stars stars={item.stars} /> {item.reviews} revisiones{" "}
+                <Stars stars={item.stars} /> {item.reviews} revisiones
               </p>
             )
           }

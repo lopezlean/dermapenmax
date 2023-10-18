@@ -31,7 +31,7 @@ const { items, feature, getItemProp, getItemFeatureName } = Astro.props;
 ---
 
 <tr
-  class="border-b border-gray-100 even:bg-gray-100 odd:bg-white flex sm:table-row mb-2 sm:mb-0"
+  class="border-b border-gray-100 even:bg-gray-100 odd:bg-white sm:table-row mb-2 sm:mb-0 dark:even:bg-gray-800 dark:border-gray-600 dark:text-whites dark:odd:bg-gray-900"
 >
   <th
     scope="row"
@@ -45,7 +45,7 @@ const { items, feature, getItemProp, getItemFeatureName } = Astro.props;
   </th>
   {
     items.map((item, index) => (
-      <td class="px-6 py-4 break-all dark:text-white  border border-gray-100">
+      <td class="px-6 py-4 break-all dark:text-white  border border-gray-100 dark:border-gray-600  ">
         {Astro.slots.has("default") ? (
           <Fragment set:html={Astro.slots.render("default", [item, index])} />
         ) : getItemProp ? (

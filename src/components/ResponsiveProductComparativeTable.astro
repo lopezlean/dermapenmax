@@ -1,0 +1,25 @@
+---
+import type ItemInterface from "~/interfaces/item.interface";
+import ProductComparativeTable from "./ProductComparativeTable.astro";
+
+interface Props {
+  items: ItemInterface[];
+  maxItems?: number;
+}
+
+const items = Astro.props.items;
+const maxItems = Astro.props.maxItems || 4;
+const itemsToCompare = items.slice(0, maxItems);
+---
+
+<div class="hidden sm:block">
+  <ProductComparativeTable items={itemsToCompare} maxItems={maxItems} />
+</div>
+
+<div class="block sm:hidden">
+  {
+    itemsToCompare.map((item) => (
+      <ProductComparativeTable items={[item]} maxItems={1} />
+    ))
+  }
+</div>
