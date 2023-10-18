@@ -1,6 +1,8 @@
 ---
 import Container from "./Container.astro";
 import { Image } from "astro:assets";
+
+import whatIsMicroneedlingImage from "~/images/home/que-es-el-microneedling-facial.png";
 ---
 
 <div id="features" class="mt-5">
@@ -59,9 +61,11 @@ import { Image } from "astro:assets";
         </p>
       </div>
       <div class="relative">
-        <img
+        <Image
           src="/images/home/que-es-el-microneedling-facial.webp"
           alt="Qué es el microneedling facial"
+          width={650}
+          height={650}
         />
         <div
           class="absolute inset-0 h-100 w-3/12 from-0% to-1% bg-gradient-to-r from-white dark:from-gray-900"
@@ -94,7 +98,7 @@ import { Image } from "astro:assets";
       >
         <div class="relative space-y-8 py-12 p-8">
           <Image
-            src="https://cdn-icons-png.flaticon.com/512/8946/8946531.png"
+            src={whatIsMicroneedlingImage}
             class="w-12"
             width="48"
             height="48"
