@@ -1,0 +1,48 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import Hero from "~/components/Hero.astro";
+import Features from "~/components/Features.astro";
+
+import items from "~/data/dermapen/items";
+import BrandDescription from "~/components/BrandDescription.astro";
+import BrandItems from "~/components/BrandItems.astro";
+import Container from "../../components/Container.astro";
+import ResponsiveProductComparativeTable from "~/components/ResponsiveProductComparativeTable.astro";
+---
+
+<Layout
+  title="Dermanpen tratamiento Facial"
+  description="¿Buscas un Dermapen para tratamiento facial al mejor precio? ¿Quieres conocer las características de sus modelos? ¡Solo necesitas hacer clic!"
+>
+  <main>
+    <Hero
+      preTitle={`<span class="text-primary dark:text-white">Dr. Pen</span> es el Derma Pen 
+       más avanzado y elegido para el tratamiento facial.`}
+      title="Dermapen para Tratamiento facial"
+      description="Dr. pen® es la marca más recomendada por esteticistas de todo el mundo"
+      cta={{
+        text: `Ver todas las reseñas`,
+        url: "/resenas",
+      }}
+    />
+
+    <Container>
+      <h2
+        class="my-8 text-2xl font-bold text-gray-700 dark:text-white md:text-4xl"
+      >
+        Los mejores <span class="text-primary dark:text-white">Derma Pen</span>
+         para tratamiento facial
+      </h2>
+    </Container>
+
+    <BrandItems items={items} />
+    <Container>
+      <h2
+        class="my-8 text-2xl font-bold text-gray-700 dark:text-white md:text-4xl"
+      >
+        Derma pen tratamiento facial precio
+      </h2>
+    </Container>
+    <ResponsiveProductComparativeTable items={items} />
+  </main>
+</Layout>

@@ -1,0 +1,37 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import Hero from "~/components/Hero.astro";
+import Features from "~/components/Features.astro";
+
+import items from "~/data/dermapen/items";
+import BrandDescription from "~/components/BrandDescription.astro";
+import BrandItems from "~/components/BrandItems.astro";
+import Container from "../../components/Container.astro";
+import ResponsiveProductComparativeTable from "~/components/ResponsiveProductComparativeTable.astro";
+---
+
+<Layout
+  title="Dermanpen tratamiento opiniones"
+  description="¿Buscas opiniones de Dermapen ? ¿Quieres conocer las características de sus modelos? ¡Solo necesitas hacer clic!"
+>
+  <main>
+    <Hero
+      preTitle={`<span class="text-primary dark:text-white">Opiiones</span> de los mejores Derma Pen del mercado.`}
+      title="Opiniones"
+      description="Las mejores opiniones de Derma Pen para tratamiento facial y corporal."
+    />
+
+    <Container>
+      <h2
+        class="my-8 text-2xl font-bold text-gray-700 dark:text-white md:text-4xl"
+      >
+        Todas las opiniones de <span class="text-primary dark:text-white"
+          >Derma Pen</span
+        >
+         para tratamiento en casa
+      </h2>
+    </Container>
+
+    <BrandItems items={items} />
+  </main>
+</Layout>
