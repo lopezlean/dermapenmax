@@ -8,18 +8,28 @@ import ProductReviews from "~/components/ProductReviews.astro";
 import items from "~/data/dermapen/drpen/items";
 import Layout from "~/layouts/Layout.astro";
 
+import databaseItems from "~/data/dermapen/items";
+import ResponsiveProductComparativeTable from "~/components/ResponsiveProductComparativeTable.astro";
+import Container from "~/components/Container.astro";
+
 export function getStaticPaths() {
   return items.map((item) => ({
     params: { slug: item.slug.split("/").filter(Boolean).pop() },
   }));
 }
 
-const { slug, index } = Astro.params;
+const { slug } = Astro.params;
 
 // get item by slug
 const item =
   items.find((item) => item.slug.split("/").filter(Boolean).pop() === slug) ||
   items[0];
+
+// take 3 random items from databaseItems where item.slug is not equal to item.slug
+const relatedItems = databaseItems
+  .filter((i) => i.slug !== item.slug)
+  .sort(() => 0.5 - Math.random())
+  .slice(0, 3);
 ---
 
 <Layout
@@ -43,6 +53,16 @@ const item =
     />
 
     <ProductFeatures item={item} />
+    <Container>
+      <h2
+        class="my-8 text-2xl font-bold text-gray-700 dark:text-white md:text-4xl"
+      >
+        Comparativa de
+        <span class="text-primary dark:text-white">{item.title}</span> con otros
+        dermapen
+      </h2>
+    </Container>
+    <ResponsiveProductComparativeTable items={[item, ...relatedItems]} />
     <ProductReviews item={item} />
   </main>
 </Layout>
