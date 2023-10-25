@@ -1,0 +1,51 @@
+---
+import { getAllBrands } from "~/database/brands";
+import Container from "./Container.astro";
+import Section from "./Section.astro";
+import H2 from "./typograpy/H2.astro";
+
+const allBrands = getAllBrands();
+
+const possibleClassNames = [
+  "text-3xl text-gray-400",
+  "text-xl text-gray-500",
+  "text-md text-gray-700",
+  "text-lg text-gray-500",
+  "text-sm text-gray-300",
+  "text-3xl text-gray-500",
+  "text-md text-gray-200",
+  "text-2xl text-gray-300",
+  "text-xl text-gray-600",
+  "text-md text-gray-500",
+  "text-xs text-gray-300",
+  "text-4xl text-gray-500",
+  "text-lg text-gray-200",
+  "text-3xl text-gray-500",
+  "text-md text-gray-500",
+  "text-4xl text-gray-500",
+  "text-lg text-gray-500",
+  "text-sm text-gray-500",
+];
+---
+
+<Section class="bg-gray-100 py-16">
+  <Container>
+    <H2 class="text-gray-900 mb-8">Marcas que encontrarás en este sitio</H2>
+    <div class="flex justify-center flex-wrap align-center gap-2 leading-8">
+      {
+        allBrands.map((brand, index) => (
+          <a
+            class={`${
+              possibleClassNames[
+                (Math.random() * possibleClassNames.length) | 0
+              ]
+            }`}
+            href={`/marca/${brand.slug}`}
+          >
+            {brand.name}
+          </a>
+        ))
+      }
+    </div>
+  </Container>
+</Section>

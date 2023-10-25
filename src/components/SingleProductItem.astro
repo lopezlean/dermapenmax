@@ -1,0 +1,99 @@
+---
+import ProductInformationInterface from "~/interfaces/product-information.interface";
+import { generateAffiliateUrl } from "~/lib/generate-affiliate-url";
+
+import { Image } from "astro:assets";
+interface Props {
+  item: ProductInformationInterface;
+}
+
+const item = Astro.props.item;
+
+item.url = generateAffiliateUrl(item.url);
+---
+
+<style>
+  h3 {
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+
+    -webkit-box-orient: vertical;
+  }
+  .prices {
+    display: block;
+  }
+  .price.EUR::before {
+    content: "€";
+  }
+  .price.USD::before {
+    content: "$";
+  }
+</style>
+
+<div class="group relative bg-yellow-50 dark:bg-gray-700 px-6">
+  <div class="mt-4 flex items-center justify-center flex-col md:flex-row gap-6">
+    <div
+      class="w-full overflow-hidden rounded-md lg:aspect-none group-hover:opacity-75 lg:h-100 dark:shadow dark:shadow-2xl dark:bg-gray-700"
+    >
+      <Image
+        src={item.main_image}
+        alt={item.title}
+        class="h-full w-full object-contain object-center lg:h-full lg:w-full"
+        width={281}
+        height={281}
+      />
+    </div>
+    <div class="mt-4 flex items-center justify-center flex-col max-w-full">
+      <h3 class="text-xl mb-3">
+        <a
+          href={item.url}
+          class="text-gray-700 dark:text-gray-100"
+          target="_blank"
+        >
+          <span aria-hidden="true" class="absolute inset-0"></span>
+          {item.title}
+        </a>
+      </h3>
+      <div class="mt-4 flex  flex-col items-center md:flex-row md:justify-end md:items-end w-full gap-3 md:gap-16">
+        <p class="text-2xl font-medium text-gray-900 prices dark:text-white my-0">
+          {
+            item.price.before_price &&
+            item.price.before_price.toFixed(2) !==
+              item.price.current_price.toFixed(2) ? (
+              <span
+                class={`price line-through text-gray-600 dark:text-gray-300 ${item.price.currency} mr-4 block md:inline-block `}
+              >
+                {
+                  // with max 2 decimals we fix the scrapping problem
+                  item.price.before_price.toFixed(2)
+                }
+              </span>
+            ) : null
+          }
+          <span
+            class=`block md:inline-block price ${item.price.current_price > 0 ? item.price.currency: null}`
+          >
+            {
+              item.price.current_price > 0
+                ? item.price.current_price.toFixed(2)
+                : "Consultar precio"
+            }
+          </span>
+        </p>
+        <p class="text-sm font-medium text-gray-900">
+          <!-- buy button -->
+          <a
+            href={item.url}
+            target="_blank"
+            type="button"
+            class="bg-orange-300 text-gray-900 font-bold py-4 px-6 rounded text-xl block"
+          >
+            Comprar
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

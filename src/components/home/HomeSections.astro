@@ -1,0 +1,82 @@
+---
+import { Image } from "astro:assets";
+import Container from "../Container.astro";
+import H2 from "../typograpy/H2.astro";
+import H3 from "../typograpy/H3.astro";
+
+import InformationSection from "../InformationSection.astro";
+
+import section1Image from "~/images/freidoras/sin-aceite.jpeg";
+import section2Image from "~/images/freidoras/con-aceite.jpeg";
+import section3Image from "~/images/freidoras/a-gas.jpeg";
+import section4Image from "~/images/freidoras/electricas.jpeg";
+
+
+
+---
+
+<Container class="mt-5">
+  <H2>Tipos de freidoras</H2>
+  <H3 class="mt-5">Para el hogar</H3>
+  
+  <p>
+    Las freidoras para el hogar han llegado para transformar tus comidas diarias
+    en experiencias más saludables y deliciosas. Dentro de esta categoría, te
+    presentamos dos opciones:
+  </p>
+  <InformationSection
+    title="Freidoras sin aceite"
+    subtitle="La Innovación Saludable"
+    description={`Las freidoras sin aceite, también conocidas como freidoras de aire o Air fryers, han
+    llegado para cambiar tu forma de cocinar. En lugar de sumergir tus
+    comidas en aceite, estas maravillas de la tecnología utilizan aire
+    caliente para cocinar de manera crujiente y saludable. ¿Preparado para
+    una experiencia culinaria novedosa? Haz click aquí y enterate <strong>para que sirve una freidora de aire</strong>.`}
+    href="/sin-aceite/"
+    image={section1Image}
+    imageAlt="Air Fryer"
+    buttonText="Para que sirve una freidora de aire"
+    direction="reverse"
+  />
+
+  <InformationSection
+    title="Freidoras con Aceite"
+    subtitle="El Sabor de Siempre"
+    description={`Aunque las freidoras con aceite son las clásicas de toda la vida, no
+    dejan de sorprendernos con su sabor inigualable. En cuestión de minutos,
+    puedes cocinar desde croquetas caseras hasta deliciosas papas fritas con
+    un sabor intenso. Descubre la comodidad de la cocina tradicional.`}
+    href="/con-aceite/"
+    image={section2Image}
+    imageAlt="Freidora tradicional"
+    buttonText="Conoce más sobre las freidoras con aceite"
+  />
+  <H3 class="mt-5">Para negocios</H3>
+  <p>
+    <a href="/industriales/">Las freidoras industriales</a> para
+    negocios están diseñadas para satisfacer la demanda de establecimientos
+    comerciales y restaurantes. Aquí te presentamos dos opciones:
+
+    <InformationSection
+      title="Freidoras de Gas"
+      subtitle="Potencia Profesional"
+      description={`Las freidoras de gas son las favoritas de la industria culinaria. Su robustez y eficiencia las hacen ideales para cocinas profesionales. Desde restaurantes hasta establecimientos similares, estas máquinas se adaptan a cualquier entorno. Las opciones de sobremesa o de pie ofrecen una variedad que se adapta a tus necesidades.`}
+      
+      image={section3Image}
+      imageAlt="DICOINA L/12 L Freidora de Gas comercial"
+      buttonText="Freidora a gas butano"
+      direction="reverse"
+    />
+
+    <InformationSection
+      title="Freidoras eléctricas"
+      
+      subtitle="Calidad Rápida y Eficiente"
+      description={`Estas freidoras eléctricas ofrecen un control preciso de la temperatura y un calentamiento rápido. Aunque son menos comunes en comparación con otras opciones, su eficiencia es invaluable para la cocina profesional.`}
+      
+      image={section4Image}
+      imageAlt="Freidoras a electricidad"
+      buttonText="Conoce más sobre las freidoras electricas"
+    />
+  </p>
+</Container>

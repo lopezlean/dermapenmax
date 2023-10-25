@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import items from "~/data/dermapen/items";
 import type TipInterface from "~/interfaces/tip.interface";
 interface Props {
@@ -6,25 +7,31 @@ interface Props {
 }
 
 const { item } = Astro.props;
+const itemUrl = `/consejos/${item.slug}/`;
 ---
 
 <article class="flex flex-col shadow my-4">
   <!-- Article Image -->
-  <a href={item.slug} class="hover:opacity-75">
-    <img src={item.image} />
+  <a href={itemUrl} class="hover:opacity-75">
+    <Image
+      src={item.data.image}
+      width={700}
+      height={400}
+      alt={item.data.imageAlt}
+    />
   </a>
   <div class="bg-white dark:bg-gray-800 flex flex-col justify-start p-6">
     <span class="text-blue-700 text-sm font-bold uppercase pb-4">
       {
-        Array.isArray(item.tags) &&
-          item.tags.map((tag) => <span class="mr-2">{tag}</span>)
+        Array.isArray(item.data.tags) &&
+          item.data.tags.map((tag) => <span class="mr-2">{tag}</span>)
       }
     </span>
 
     <a
-      href={item.slug}
+      href={itemUrl}
       class="text-3xl font-bold hover:text-gray-700 pb-4 text-gray-900 dark:text-gray-100 dark:hover:text-white"
-      >{item.title}
+      >{item.data.title}
     </a>
 
     <a
@@ -36,7 +43,7 @@ const { item } = Astro.props;
     >
     <div class="text-right">
       <a
-        href={item.slug}
+        href={itemUrl}
         class="uppercase hover:text-gray-100 bg-orange-600 text-white font-bold py-2 px-4"
         >Leer más</a
       >

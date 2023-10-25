@@ -1,9 +1,12 @@
 interface TipInterface {
-  title: string;
-  excerpt?: string;
-  image: string;
   slug: string;
-  tags?: string[];
+  data: {
+    title: string;
+    excerpt?: string;
+    image: string;
+    imageAlt?: string;
+    tags?: string[];
+  };
 }
 
 export default TipInterface;

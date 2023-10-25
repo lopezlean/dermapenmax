@@ -1,0 +1,51 @@
+---
+import { Image } from "astro:assets";
+import Button from "./Button.astro";
+import H4 from "./typograpy/H4.astro";
+
+interface Props {
+  title: string;
+  subtitle: string;
+  description: string;
+  image: ImageMetadata;
+  imageAlt: string;
+  href?: string;
+  buttonText: string;
+  direction?: "normal" | "reverse";
+}
+
+const { title, subtitle, description, image, imageAlt, href, buttonText } =
+  Astro.props;
+const direction = Astro.props.direction || "normal";
+---
+
+<div
+  class={`space-y-6 justify-between text-gray-700 dark:text-gray-100 md:flex md:space-y-0 lg:items-center ${
+    direction === "reverse" ? "flex-row-reverse" : null
+  }`}
+>
+  <div class="md:5/12 lg:w-1/2">
+    <Image
+      src={image}
+      alt={imageAlt}
+      loading="lazy"
+      width={600}
+      height={600}
+      class="w-full object-cover"
+    />
+  </div>
+  <div class="md:7/12 lg:w-1/2">
+    <div class={`${direction === "reverse" ? "md:pr-5" : "md:pl-5"}`}>
+      <H4 class="font-bold">
+        <a class="text-gray-900 dark:text-white" href={href}>{title}</a>
+      </H4>
+      <p class="font-bold text-base">{subtitle}</p>
+      <p class="text-xl" set:html={description} />
+        
+      
+      {href && <Button href={href} class="inline-block mb-5">
+        {buttonText}
+      </Button>}
+    </div>
+  </div>
+</div>

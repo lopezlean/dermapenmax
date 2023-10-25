@@ -3,12 +3,13 @@ import { SEO } from "astro-seo";
 
 import AppFooter from "../components/AppFooter.astro";
 import AppHeader from "../components/AppHeader.astro";
+import { getImage } from "astro:assets";
 
 interface Props {
   title: string;
   titleSiteName?: boolean;
   description: string;
-  image?: string;
+  image?: string | ImageMetadata;
   floatingButton?: {
     text: string;
     url: string;
@@ -29,6 +30,14 @@ const floatingButtonInstance = floatingButton || {
 };
 
 const realTitle = titleSiteName ? `${title} | Derma Pen Max` : title;
+
+let realImage =
+  typeof image === "string" ? image : (await getImage({ src: image })).src;
+
+// add full path to realImage
+if (realImage.startsWith("/")) {
+  realImage = `${Astro.site}${realImage.slice(1)}`;
+}
 ---
 
 <!doctype html>
@@ -47,7 +56,7 @@ const realTitle = titleSiteName ? `${title} | Derma Pen Max` : title;
         basic: {
           title: realTitle,
           type: "website",
-          image: image,
+          image: realImage,
         },
       }}
       twitter={{
@@ -60,7 +69,7 @@ const realTitle = titleSiteName ? `${title} | Derma Pen Max` : title;
         meta: [
           {
             name: "twitter:image",
-            content: image,
+            content: realImage,
           },
           { name: "twitter:title", content: realTitle },
           { name: "twitter:description", content: description },

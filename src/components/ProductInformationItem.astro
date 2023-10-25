@@ -1,0 +1,100 @@
+---
+import ProductInformationInterface from "~/interfaces/product-information.interface";
+
+import { generateAffiliateUrl } from "~/lib/generate-affiliate-url";
+
+import { Image } from "astro:assets";
+interface Props {
+  item: ProductInformationInterface;
+}
+
+const item = Astro.props.item;
+
+item.url = generateAffiliateUrl(item.url);
+---
+
+<style>
+  h3 {
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    max-height: 97px;
+    -webkit-box-orient: vertical;
+  }
+  .prices {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .price.EUR::before {
+    content: "€";
+  }
+  .price.USD::before {
+    content: "$";
+  }
+</style>
+
+<div class="group relative">
+  <div
+    class="w-full overflow-hidden rounded-md dark:bg-gray-900 lg:aspect-none group-hover:opacity-75 lg:h-80 dark:shadow dark:shadow-2xl dark:bg-white"
+  >
+    <Image
+      src={item.main_image}
+      alt={item.title}
+      class="h-full w-full object-contain object-center lg:h-full lg:w-full max-h-60"
+      width={254}
+      height={261}
+    />
+  </div>
+  <div class="mt-4 flex items-center justify-center flex-col">
+    <h3 class="text-xl mb-3">
+      <a
+        href={item.url}
+        class="text-gray-700 dark:text-gray-100"
+        target="_blank"
+        rel="nofollow noopener sponsored"
+      >
+        <span aria-hidden="true" class="absolute inset-0"></span>
+        {item.title}
+      </a>
+    </h3>
+    <p class="text-lg font-medium text-gray-900 prices dark:text-white">
+      {
+        item.price.before_price &&
+        item.price.before_price.toFixed(2) !==
+          item.price.current_price.toFixed(2) ? (
+          <span
+            class={`price line-through text-gray-600 dark:text-gray-300 ${item.price.currency}`}
+          >
+            {
+              // with max 2 decimals we fix the scrapping problem
+              item.price.before_price.toFixed(2)
+            }
+          </span>
+        ) : null
+      }
+      <span
+        class=`price ${item.price.current_price > 0 ? item.price.currency: null}`
+      >
+        {
+          item.price.current_price > 0
+            ? item.price.current_price.toFixed(2)
+            : "Consultar precio"
+        }
+      </span>
+    </p>
+    <p class="text-sm font-medium text-gray-900">
+      <!-- buy button -->
+      <a
+        href={item.url}
+        target="_blank"
+        type="button"
+        class="bg-orange-300 text-gray-900 font-bold py-4 px-6 rounded text-xl block"
+        rel="nofollow noopener sponsored"
+      >
+        Comprar
+      </a>
+    </p>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+---
+import Container from "~/components/Container.astro";
+import Section from "~/components/Section.astro";
+import H2 from "~/components/typograpy/H2.astro";
+import BlogList from "../BlogList.astro";
+import type PostInterface from "~/interfaces/post.interface";
+import { getCollection } from "astro:content";
+const year = new Date().getFullYear();
+
+const posts = await getCollection("reviews");
+---
+
+<Section>
+  <Container>
+    <BlogList
+      baseUrl="/resenas"
+      title={`Análisis de las mejores freidoras del ${year}`}
+      posts={posts}
+    />
+  </Container>
+</Section>

@@ -3,11 +3,8 @@ import Layout from "~/layouts/Layout.astro";
 import Hero from "~/components/Hero.astro";
 import TipItem from "~/components/TipItem.astro";
 
+import items from "~/data/tips/data";
 import Container from "~/components/Container.astro";
-
-import { getCollection } from "astro:content";
-
-const posts = await getCollection("blog");
 ---
 
 <Layout
@@ -22,7 +19,7 @@ const posts = await getCollection("blog");
     />
     <Container>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {posts.map((item) => <TipItem item={item} />)}
+        {items.map((item) => <TipItem item={item} />)}
       </div>
     </Container>
   </main>

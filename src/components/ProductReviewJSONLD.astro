@@ -1,0 +1,47 @@
+---
+import type { CollectionEntry } from "astro:content";
+import type ProductInformationInterface from "~/interfaces/product-information.interface";
+
+interface Props {
+  review: CollectionEntry<"reviews">["data"];
+  product: ProductInformationInterface;
+}
+
+const { review, product } = Astro.props;
+
+
+const schema = {
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  name: review.product || product.title,
+  description: review.description,
+  review: {
+    "@type": "Review",
+    reviewRating: {
+      "@type": "Rating",
+      ratingValue: product.reviews.rating,
+      bestRating: 5,
+    },
+    author: {
+      "@type": "Organization",
+      name: "Freidoras.info",
+      url: "https://freidoras.info",
+    },
+  },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: product.reviews.rating,
+    reviewCount: product.reviews.total_reviews,
+  },
+
+  offers: {
+    "@type": "AggregateOffer",
+    offerCount: 1,
+    lowPrice: product.price.current_price,
+    highPrice: product.price.before_price || product.price.current_price,
+    priceCurrency: product.price.currency,
+  },
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

@@ -1,0 +1,41 @@
+---
+import { getCollection, getEntry } from "astro:content";
+import Container from "~/components/Container.astro";
+import ProductHero from "~/components/ProductHero.astro";
+import ProductList from "~/components/ProductList.astro";
+import Layout from "~/layouts/Layout.astro";
+import items from "~/data/dermapen/drpen/items";
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection("blog");
+  return blogEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+const { title, description, image, imageAlt, preTitle } = entry.data;
+---
+
+<Layout title={title} description={description} image={image}>
+  <div class="mt-12 pt-12">
+    <ProductHero
+      title={title}
+      description={description}
+      preTitle={"Consejos de expertos"}
+      image={image}
+      imageAlt={imageAlt}
+    />
+    <Container>
+      <article
+        class="prose max-w-none lg:prose-xl dark:prose-invert dark:text-gray-100 text-gray-900"
+      >
+        <Content />
+      </article>
+    </Container>
+    <ProductList items={items} title={`Las mejores dermapen del mercado`} />
+  </div>
+</Layout>

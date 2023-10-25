@@ -1,0 +1,28 @@
+---
+// this component take 8 random items from the database
+// 3 for each category and 2 for the last one
+import items1 from "~/database/freidoras-sin-aceite.json";
+import items2 from "~/database/freidoras-de-aceite.json";
+import items3 from "~/database/freidoras-industriales.json";
+import ProductList from "./ProductList.astro";
+
+const items = items1
+  .slice(0, 3)
+  .concat(items2.slice(0, 3))
+  .concat(items3.slice(3, 5));
+
+// mix items
+for (let i = items.length - 1; i > 0; i--) {
+  const j = Math.floor(Math.random() * i);
+  const temp = items[i];
+  items[i] = items[j];
+  items[j] = temp;
+}
+
+const year = new Date().getFullYear();
+---
+
+<ProductList
+  items={items}
+  title={`Catálogo de las mejores freidoras del ${year}`}
+/>
