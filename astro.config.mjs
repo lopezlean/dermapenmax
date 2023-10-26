@@ -8,7 +8,7 @@ import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), preact(), mdx(), sitemap()],
-  site: "https://dermapenmax.com",
+  site: "https://www.dermapenmax.com",
 
   image: {
     service: squooshImageService(),
